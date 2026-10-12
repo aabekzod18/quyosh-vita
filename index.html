@@ -1,0 +1,354 @@
+<title>Quyosh Vita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: kompakt sarlavha, chapda katta sarlavha + ikki tugma, o'ngda "tabletka" shakllari; keyin mahsulot to'ri, afzalliklar, ro'yxatdan o'tish formasi. */
+:root {
+  --bg: #f2f7f3;
+  --surface: #ffffff;
+  --fg: #10281f;
+  --muted: #4d6258;
+  --line: #d3e0d7;
+  --accent: #e8590c;
+  --accent-fg: #ffffff;
+  --lemon: #f6d33e;
+  --leaf: #1f7a4d;
+  --leaf-soft: #dcefe3;
+  --focus: #1c5fd4;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1c16; --surface: #15291f; --fg: #eaf4ee; --muted: #9db3a6; --line: #26402f;
+    --accent: #ff7a2f; --accent-fg: #1a0c02; --lemon: #f2cd3a; --leaf: #5fcf94; --leaf-soft: #1b3a2a; --focus: #7fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1c16; --surface: #15291f; --fg: #eaf4ee; --muted: #9db3a6; --line: #26402f;
+  --accent: #ff7a2f; --accent-fg: #1a0c02; --lemon: #f2cd3a; --leaf: #5fcf94; --leaf-soft: #1b3a2a; --focus: #7fb0ff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  padding-inline: 16px; padding-block: 0 96px;
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+
+/* header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+.sun { width: 28px; height: 28px; border-radius: 50%; background: var(--lemon); box-shadow: 0 0 0 5px color-mix(in srgb, var(--lemon) 35%, transparent); flex: none; }
+.top nav { display: flex; gap: 20px; font-size: 0.95rem; font-weight: 500; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--fg); }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 1rem var(--font-body); padding: 13px 22px; border-radius: 999px;
+  border: 2px solid transparent; cursor: pointer; text-decoration: none; min-height: 48px;
+}
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-ghost { background: transparent; color: var(--fg); border-color: var(--fg); }
+.btn-ghost:hover { background: var(--fg); color: var(--bg); }
+.btn-small { padding: 9px 16px; min-height: 40px; font-size: 0.92rem; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; padding-block: 36px 56px; }
+.hero > * { min-width: 0; }
+.eyebrow { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--leaf); margin-bottom: 14px; }
+.hero h1 { font-size: clamp(2.5rem, 7.2vw, 4.9rem); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lead { margin-top: 20px; max-width: 46ch; color: var(--muted); font-size: 1.1rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.phone-line { margin-top: 18px; font-size: 0.95rem; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.phone-line strong { color: var(--fg); font-variant-numeric: tabular-nums; user-select: all; }
+.copy { font: 500 0.82rem var(--font-body); background: var(--leaf-soft); color: var(--leaf); border: 0; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+
+.pills { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 400px; justify-self: center; }
+.pill {
+  position: absolute; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 800; color: #10281f;
+}
+.pill small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; margin-top: -4px; }
+.pill b { font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1; display: block; text-align: center; }
+.p1 { width: 62%; aspect-ratio: 1; left: 0; top: 6%; background: var(--lemon); }
+.p2 { width: 46%; aspect-ratio: 1; right: 0; top: 0; background: #ff9d4d; }
+.p3 { width: 52%; aspect-ratio: 1; right: 8%; bottom: 0; background: #8fd6a9; }
+.p1::after { content: ""; position: absolute; inset: 9%; border: 2px dashed rgba(16,40,31,.28); border-radius: 50%; }
+
+/* sections */
+section { padding-block: 40px; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; margin-bottom: 24px; }
+.sec-head h2 { font-size: clamp(1.8rem, 4.5vw, 2.7rem); font-weight: 800; }
+.sec-head p { color: var(--muted); max-width: 40ch; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.badge { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: #10281f; }
+.card h3 { font-size: 1.3rem; font-weight: 700; }
+.card .meta { color: var(--muted); font-size: 0.92rem; }
+.card .note { font-size: 0.92rem; flex: 1; }
+.buy { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.price { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.price span { font-family: var(--font-body); font-weight: 400; font-size: 0.82rem; color: var(--muted); }
+.qty { display: inline-flex; align-items: center; border: 2px solid var(--fg); border-radius: 999px; }
+.qty button { width: 38px; height: 38px; border: 0; background: transparent; color: var(--fg); font-size: 1.2rem; cursor: pointer; border-radius: 50%; }
+.qty output { min-width: 26px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px; border-top: 2px solid var(--fg); padding-top: 24px; }
+.why h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.why p { color: var(--muted); font-size: 0.95rem; }
+
+/* signup */
+.signup { background: var(--leaf-soft); border-radius: 28px; padding: 28px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.signup > * { min-width: 0; }
+.signup h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; }
+.signup .sub { margin-top: 12px; color: var(--muted); }
+.order-sum { margin-top: 20px; background: var(--surface); border-radius: 14px; padding: 14px 16px; font-size: 0.95rem; }
+.order-sum ul { margin: 6px 0 0; padding-left: 18px; }
+form { display: flex; flex-direction: column; gap: 14px; }
+label { font-weight: 600; font-size: 0.92rem; display: flex; flex-direction: column; gap: 6px; }
+input[type="text"], input[type="tel"] {
+  font: 400 1rem var(--font-body); padding: 13px 14px; border-radius: 12px; min-height: 48px;
+  border: 2px solid var(--line); background: var(--surface); color: var(--fg); width: 100%;
+}
+input:focus { border-color: var(--focus); }
+.status { min-height: 1.5em; font-size: 0.92rem; }
+.status.ok { color: var(--leaf); font-weight: 600; }
+.status.err { color: var(--accent); font-weight: 600; }
+.fine { font-size: 0.8rem; color: var(--muted); }
+
+footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 24px; display: grid; gap: 6px; }
+
+/* cart bar */
+.cartbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--fg); color: var(--bg);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+}
+.cartbar[hidden] { display: none; }
+.cartbar span { font-weight: 600; font-variant-numeric: tabular-nums; }
+.cartbar .btn { background: var(--accent); color: var(--accent-fg); min-height: 42px; padding-block: 8px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-block: 16px 40px; }
+  .pills { max-width: 300px; }
+  .signup { grid-template-columns: 1fr; padding: 24px 16px; }
+  .top nav { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .card { transition: transform .15s ease, filter .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="sun" aria-hidden="true"></span>Quyosh Vita</div>
+    <nav aria-label="Bo'limlar">
+      <a href="#mahsulotlar">Mahsulotlar</a>
+      <a href="#afzallik">Afzalliklar</a>
+      <a href="#royxat">Ro'yxatdan o'tish</a>
+    </nav>
+    <a class="btn btn-primary btn-small" href="#mahsulotlar">Sotib olish</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Vitaminlar · Toshkent bo'ylab yetkazish</p>
+        <h1>Qish kelmasdan <em>quyosh</em> zaxirasini yig'ing</h1>
+        <p class="lead">C, D3, multivitamin va omega-3. Har biri alohida qadoqda, tarkibi va dozasi ochiq yozilgan. Tanlang, buyurtma bering, ertasi kuni olasiz.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#mahsulotlar">Sotib olish</a>
+          <a class="btn btn-ghost" href="tel:+998200040609">Qo'ng'iroq qilish</a>
+          <a class="btn btn-ghost" href="#royxat">Ro'yxatdan o'tish</a>
+        </div>
+        <p class="phone-line">Telefon: <strong id="tel">+998 20 004 06 09</strong>
+          <button class="copy" type="button" id="copyBtn">Nusxa olish</button></p>
+      </div>
+      <div class="pills" aria-hidden="true">
+        <div class="pill p1"><div><b>C</b><small>1000 mg</small></div></div>
+        <div class="pill p2"><div><b>D3</b><small>2000 IU</small></div></div>
+        <div class="pill p3"><div><b>B12</b><small>multi</small></div></div>
+      </div>
+    </div>
+
+    <section id="mahsulotlar" aria-labelledby="h-prod">
+      <div class="sec-head">
+        <h2 id="h-prod">Mahsulotlar</h2>
+        <p>Miqdorni tanlang, pastdagi panel jami summani ko'rsatadi.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="afzallik" aria-labelledby="h-why">
+      <div class="sec-head"><h2 id="h-why">Nega Quyosh Vita</h2></div>
+      <div class="why">
+        <div><h3>Tarkibi ochiq</h3><p>Har bir qadoqda mg yoki IU bilan doza yozilgan. Nima ichayotganingizni bilasiz.</p></div>
+        <div><h3>Ertasi kuni yetkazish</h3><p>Toshkent ichida buyurtma ertasi kuni eshigingizgacha olib boriladi.</p></div>
+        <div><h3>Savol bo'lsa, javob beramiz</h3><p>Telefon orqali dozani tushuntiramiz. Dori emas, shuning uchun qabuldan oldin shifokor bilan maslahatlashing.</p></div>
+      </div>
+    </section>
+
+    <section id="royxat" aria-labelledby="h-sign">
+      <div class="signup">
+        <div>
+          <h2 id="h-sign">Ro'yxatdan o'ting, birinchi buyurtmaga 10% chegirma oling</h2>
+          <p class="sub">Ism va telefon raqamingizni qoldiring. Operator buyurtmani tasdiqlash uchun qo'ng'iroq qiladi.</p>
+          <div class="order-sum" id="sum" aria-live="polite"></div>
+        </div>
+        <form id="form" novalidate>
+          <label for="name">Ismingiz
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Masalan, Aziza">
+          </label>
+          <label for="phone">Telefon raqamingiz
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+998 90 123 45 67">
+          </label>
+          <button class="btn btn-primary" type="submit">Ro'yxatdan o'tish</button>
+          <p class="status" id="status" role="status"></p>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <p class="fine">Raqamingiz faqat buyurtmani tasdiqlash uchun ishlatiladi.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Quyosh Vita. Aloqa: +998 20 004 06 09. Narxlar namuna sifatida yozilgan, o'zingiznikiga almashtiring.</p>
+    <p>Vitaminlar dori vositasi emas. Qabul qilishdan oldin shifokor bilan maslahatlashing.</p>
+  </footer>
+</div>
+
+<div class="cartbar" id="cartbar" hidden>
+  <span id="cartText"></span>
+  <a class="btn" href="#royxat">Buyurtma berish</a>
+</div>
+
+<script>
+(function () {
+  var PRODUCTS = [
+    { id: "c",  badge: "C",  color: "#f6d33e", name: "Vitamin C",   meta: "1000 mg · 60 tabletka", note: "Kundalik himoya uchun. Kuniga bitta tabletka.", price: 89000 },
+    { id: "d3", badge: "D3", color: "#ff9d4d", name: "Vitamin D3",  meta: "2000 IU · 90 kapsula",  note: "Qish oylarida quyosh yetishmasa, shu zaxirani to'ldiradi.", price: 119000 },
+    { id: "mv", badge: "MV", color: "#8fd6a9", name: "Multivitamin", meta: "30 kunlik kurs",        note: "13 ta vitamin va minerallar bir qadoqda.", price: 149000 },
+    { id: "o3", badge: "Ω3", color: "#9ec9f2", name: "Omega-3",     meta: "60 kapsula",             note: "Baliq yog'idan. Ovqat bilan birga ichiladi.", price: 169000 }
+  ];
+  var qty = {};
+  PRODUCTS.forEach(function (p) { qty[p.id] = 0; });
+
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+
+  var grid = document.getElementById("grid");
+  PRODUCTS.forEach(function (p) {
+    var card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML =
+      '<div class="badge" style="background:' + p.color + '">' + p.badge + '</div>' +
+      '<div><h3>' + p.name + '</h3><p class="meta">' + p.meta + '</p></div>' +
+      '<p class="note">' + p.note + '</p>' +
+      '<div class="buy">' +
+        '<div class="price">' + fmt(p.price) + ' <span>so\'m</span></div>' +
+        '<div class="qty" role="group" aria-label="' + p.name + ' miqdori">' +
+          '<button type="button" data-id="' + p.id + '" data-d="-1" aria-label="Kamaytirish">−</button>' +
+          '<output id="q-' + p.id + '">0</output>' +
+          '<button type="button" data-id="' + p.id + '" data-d="1" aria-label="Ko\'paytirish">+</button>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+
+  var bar = document.getElementById("cartbar");
+  var barText = document.getElementById("cartText");
+  var sum = document.getElementById("sum");
+
+  function render() {
+    var count = 0, total = 0, lines = [];
+    PRODUCTS.forEach(function (p) {
+      var q = qty[p.id];
+      document.getElementById("q-" + p.id).textContent = q;
+      if (q > 0) {
+        count += q; total += q * p.price;
+        lines.push("<li>" + p.name + " × " + q + " = " + fmt(q * p.price) + " so'm</li>");
+      }
+    });
+    if (count > 0) {
+      bar.hidden = false;
+      barText.textContent = count + " ta mahsulot · " + fmt(total) + " so'm";
+      sum.innerHTML = "<strong>Savatingiz</strong><ul>" + lines.join("") + "</ul>" +
+        "<p style='margin-top:8px'><strong>Jami: " + fmt(total) + " so'm</strong></p>";
+    } else {
+      bar.hidden = true;
+      sum.innerHTML = "Savat hozircha bo'sh. Mahsulotlar bo'limidan miqdorni tanlang.";
+    }
+  }
+
+  grid.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-id]");
+    if (!b) return;
+    var id = b.getAttribute("data-id");
+    qty[id] = Math.max(0, Math.min(20, qty[id] + Number(b.getAttribute("data-d"))));
+    render();
+  });
+
+  // copy phone
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function () {
+    var el = document.getElementById("tel");
+    var done = function () { copyBtn.textContent = "Nusxa olindi"; setTimeout(function () { copyBtn.textContent = "Nusxa olish"; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = "Raqam belgilandi";
+    };
+    try {
+      navigator.clipboard.writeText(el.textContent).then(done, fallback);
+    } catch (err) { fallback(); }
+  });
+
+  // signup form: sends the order to /api/order, which forwards it to Telegram
+  var form = document.getElementById("form");
+  var status = document.getElementById("status");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("name").value.trim();
+    var phone = document.getElementById("phone").value.replace(/[^\d+]/g, "");
+    status.className = "status";
+    if (name.length < 2) { status.className = "status err"; status.textContent = "Ismingizni yozing."; return; }
+    if (phone.replace(/\D/g, "").length < 9) { status.className = "status err"; status.textContent = "Telefon raqamini to'liq yozing, masalan +998 90 123 45 67."; return; }
+
+    var items = {};
+    PRODUCTS.forEach(function (p) { if (qty[p.id] > 0) items[p.id] = qty[p.id]; });
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    status.textContent = "Yuborilmoqda...";
+
+    fetch("/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name, phone: phone, items: items, website: document.getElementById("website").value })
+    }).then(function (r) {
+      if (!r.ok) throw new Error("bad status");
+      status.className = "status ok";
+      status.textContent = "Rahmat, " + name + ". So'rovingiz qabul qilindi, operator tez orada qo'ng'iroq qiladi.";
+      form.reset();
+    }).catch(function () {
+      status.className = "status err";
+      status.textContent = "Yuborib bo'lmadi. Iltimos, +998 20 004 06 09 raqamiga qo'ng'iroq qiling.";
+    }).then(function () { btn.disabled = false; });
+  });
+
+  render();
+})();
+</script>
