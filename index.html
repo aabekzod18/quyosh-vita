@@ -3,7 +3,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap">
 <style>
-/* Layout: kompakt sarlavha, chapda katta sarlavha + ikki tugma, o'ngda "tabletka" shakllari; keyin mahsulot to'ri, afzalliklar, ro'yxatdan o'tish formasi. */
 :root {
   --bg: #f2f7f3;
   --surface: #ffffff;
@@ -43,7 +42,6 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
 .wrap { max-width: 1040px; margin-inline: auto; }
 
-/* header */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
 .sun { width: 28px; height: 28px; border-radius: 50%; background: var(--lemon); box-shadow: 0 0 0 5px color-mix(in srgb, var(--lemon) 35%, transparent); flex: none; }
@@ -51,7 +49,6 @@ a { color: inherit; }
 .top nav a { text-decoration: none; color: var(--muted); }
 .top nav a:hover { color: var(--fg); }
 
-/* buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   font: 600 1rem var(--font-body); padding: 13px 22px; border-radius: 999px;
@@ -63,7 +60,6 @@ a { color: inherit; }
 .btn-ghost:hover { background: var(--fg); color: var(--bg); }
 .btn-small { padding: 9px 16px; min-height: 40px; font-size: 0.92rem; }
 
-/* hero */
 .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; padding-block: 36px 56px; }
 .hero > * { min-width: 0; }
 .eyebrow { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--leaf); margin-bottom: 14px; }
@@ -87,7 +83,6 @@ a { color: inherit; }
 .p3 { width: 52%; aspect-ratio: 1; right: 8%; bottom: 0; background: #8fd6a9; }
 .p1::after { content: ""; position: absolute; inset: 9%; border: 2px dashed rgba(16,40,31,.28); border-radius: 50%; }
 
-/* sections */
 section { padding-block: 40px; }
 .sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; margin-bottom: 24px; }
 .sec-head h2 { font-size: clamp(1.8rem, 4.5vw, 2.7rem); font-weight: 800; }
@@ -110,7 +105,6 @@ section { padding-block: 40px; }
 .why h3 { font-size: 1.15rem; margin-bottom: 6px; }
 .why p { color: var(--muted); font-size: 0.95rem; }
 
-/* signup */
 .signup { background: var(--leaf-soft); border-radius: 28px; padding: 28px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .signup > * { min-width: 0; }
 .signup h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; }
@@ -131,7 +125,6 @@ input:focus { border-color: var(--focus); }
 
 footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 24px; display: grid; gap: 6px; }
 
-/* cart bar */
 .cartbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
   background: var(--fg); color: var(--bg);
@@ -142,9 +135,56 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
 .cartbar span { font-weight: 600; font-variant-numeric: tabular-nums; }
 .cartbar .btn { background: var(--accent); color: var(--accent-fg); min-height: 42px; padding-block: 8px; }
 
+.hero-art { position: relative; width: 100%; max-width: 420px; justify-self: center; aspect-ratio: 1 / 1; }
+.hero-art .halo { position: absolute; inset: 6% 6% 10%; border-radius: 50%; background: var(--lemon); opacity: .9; }
+.hero-art .bt { position: absolute; bottom: 8%; }
+.hero-art .bt1 { width: 34%; left: 8%; transform: rotate(-6deg); }
+.hero-art .bt2 { width: 40%; left: 30%; bottom: 4%; z-index: 2; }
+.hero-art .bt3 { width: 34%; right: 6%; transform: rotate(6deg); }
+.bt svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 14px rgba(16,40,31,.22)); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding-block: 8px 24px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; }
+.fact b { display: block; font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; line-height: 1; color: var(--accent); }
+.fact span { display: block; margin-top: 6px; font-size: .9rem; color: var(--muted); }
+.card .bottle { width: 76px; align-self: flex-start; }
+.card .bottle svg { width: 100%; height: auto; display: block; }
+.card ul.pts { margin: 0; padding-left: 18px; color: var(--muted); font-size: .9rem; display: grid; gap: 4px; }
+.card details { border-top: 1px solid var(--line); padding-top: 10px; font-size: .9rem; }
+.card summary { cursor: pointer; font-weight: 600; color: var(--leaf); }
+.card details p { margin-top: 8px; color: var(--muted); }
+.quiz { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 28px 20px; }
+.quiz fieldset { border: 0; padding: 0; margin: 0 0 20px; min-width: 0; }
+.quiz legend { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; padding: 0; }
+.opts { display: flex; flex-wrap: wrap; gap: 10px; }
+.opts label { flex-direction: row; align-items: center; gap: 0; font-weight: 500; }
+.opts input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.opts span { display: inline-block; padding: 10px 16px; border: 2px solid var(--line); border-radius: 999px; cursor: pointer; background: var(--bg); }
+.opts input:checked + span { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); font-weight: 600; }
+.opts input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.result { margin-top: 20px; display: grid; gap: 12px; }
+.rec { background: var(--leaf-soft); border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.rec .bottle { width: 44px; flex: none; }
+.rec .bottle svg { width: 100%; height: auto; display: block; }
+.rec div.t { flex: 1; min-width: 180px; }
+.rec b { font-family: var(--font-display); font-size: 1.1rem; }
+.rec p { color: var(--muted); font-size: .9rem; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; counter-reset: s; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; position: relative; }
+.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--lemon); color: #10281f; font-family: var(--font-display); font-weight: 800; margin-bottom: 12px; }
+.step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.step p { color: var(--muted); font-size: .95rem; }
+.foods { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.food { border-left: 6px solid var(--c, var(--lemon)); background: var(--surface); border-radius: 0 16px 16px 0; padding: 14px 16px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.food h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.food p { color: var(--muted); font-size: .92rem; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 18px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; font-weight: 600; font-family: var(--font-display); font-size: 1.05rem; }
+.faq details p { margin-top: 10px; color: var(--muted); }
+.disc { margin-top: 14px; font-size: .85rem; color: var(--muted); }
+
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; padding-block: 16px 40px; }
-  .pills { max-width: 300px; }
+  .hero-art { max-width: 320px; }
   .signup { grid-template-columns: 1fr; padding: 24px 16px; }
   .top nav { display: none; }
 }
@@ -159,7 +199,8 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
     <div class="brand"><span class="sun" aria-hidden="true"></span>Quyosh Vita</div>
     <nav aria-label="Bo'limlar">
       <a href="#mahsulotlar">Mahsulotlar</a>
-      <a href="#afzallik">Afzalliklar</a>
+      <a href="#tanlash">Tanlash</a>
+      <a href="#savol">Savollar</a>
       <a href="#royxat">Ro'yxatdan o'tish</a>
     </nav>
     <a class="btn btn-primary btn-small" href="#mahsulotlar">Sotib olish</a>
@@ -179,11 +220,14 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
         <p class="phone-line">Telefon: <strong id="tel">+998 20 004 06 09</strong>
           <button class="copy" type="button" id="copyBtn">Nusxa olish</button></p>
       </div>
-      <div class="pills" aria-hidden="true">
-        <div class="pill p1"><div><b>C</b><small>1000 mg</small></div></div>
-        <div class="pill p2"><div><b>D3</b><small>2000 IU</small></div></div>
-        <div class="pill p3"><div><b>B12</b><small>multi</small></div></div>
-      </div>
+      <div class="hero-art" aria-hidden="true"><div class="halo"></div><div class="bt bt1" data-b="o3"></div><div class="bt bt3" data-b="d3"></div><div class="bt bt2" data-b="c"></div></div>
+    </div>
+
+    <div class="facts" aria-label="Qisqacha">
+      <div class="fact"><b>4</b><span>xil asosiy vitamin, har biri alohida qadoqda</span></div>
+      <div class="fact"><b>1 kun</b><span>Toshkent ichida yetkazish muddati</span></div>
+      <div class="fact"><b>mg / IU</b><span>doza har bir qadoqda ochiq yozilgan</span></div>
+      <div class="fact"><b>10%</b><span>ro'yxatdan o'tganlarga birinchi buyurtmada</span></div>
     </div>
 
     <section id="mahsulotlar" aria-labelledby="h-prod">
@@ -194,12 +238,72 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
       <div class="grid" id="grid"></div>
     </section>
 
+    <section id="tanlash" aria-labelledby="h-quiz">
+      <div class="sec-head"><h2 id="h-quiz">Sizga qaysi vitamin mos?</h2><p>Uchta savolga javob bering, biz tanlov taklif qilamiz.</p></div>
+      <div class="quiz">
+        <form id="quizForm" novalidate>
+          <fieldset><legend>1. Asosiy maqsadingiz nima?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q1" value="imm"><span>Shamollashga kamroq uchrash</span></label>
+              <label><input type="radio" name="q1" value="eng"><span>Quvvat va umumiy holat</span></label>
+              <label><input type="radio" name="q1" value="heart"><span>Yurak va ko'zni parvarish</span></label>
+            </div>
+          </fieldset>
+          <fieldset><legend>2. Kuniga ochiq havoda, quyoshda qancha bo'lasiz?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q2" value="low"><span>30 daqiqadan kam</span></label>
+              <label><input type="radio" name="q2" value="high"><span>30 daqiqadan ko'p</span></label>
+            </div>
+          </fieldset>
+          <fieldset><legend>3. Haftada necha marta baliq yeysiz?</legend>
+            <div class="opts">
+              <label><input type="radio" name="q3" value="few"><span>Haftada 2 martadan kam</span></label>
+              <label><input type="radio" name="q3" value="many"><span>2 va undan ko'p</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn-primary" type="submit">Tavsiya olish</button>
+        </form>
+        <div class="result" id="result" aria-live="polite"></div>
+        <p class="disc">Bu umumiy tavsiya, tibbiy tashxis emas. Surunkali kasalligingiz bo'lsa yoki dori ichsangiz, avval shifokorga murojaat qiling.</p>
+      </div>
+    </section>
+
+    <section id="qanday" aria-labelledby="h-how">
+      <div class="sec-head"><h2 id="h-how">Qanday buyurtma beriladi</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Tanlang</h3><p>Mahsulotlar bo'limida kerakli vitaminlar miqdorini belgilang yoki yuqoridagi savollar yordamida tanlang.</p></div>
+        <div class="step"><h3>Ma'lumot qoldiring</h3><p>Ism va telefon raqamingizni yozing. Birinchi buyurtmaga 10% chegirma beriladi.</p></div>
+        <div class="step"><h3>Operator qo'ng'iroq qiladi</h3><p>Buyurtmani tasdiqlaymiz, manzilni so'raymiz va ertasi kuni yetkazib beramiz.</p></div>
+      </div>
+    </section>
+
+    <section id="manba" aria-labelledby="h-food">
+      <div class="sec-head"><h2 id="h-food">Vitaminlar qayerdan olinadi</h2><p>Qo'shimcha ichishdan oldin ovqatdan nima olishingiz mumkinligini bilib qo'ying.</p></div>
+      <div class="foods">
+        <div class="food" style="--c:#f6d33e"><h3>Vitamin C</h3><p>Limon, apelsin, kiwi, qalampir, na'matak. Issiqlikda tez yo'qoladi, shuning uchun xom iste'mol qiling.</p></div>
+        <div class="food" style="--c:#ff9d4d"><h3>Vitamin D</h3><p>Asosan quyosh nuri ta'sirida terida hosil bo'ladi. Oziq-ovqatdan: yog'li baliq, tuxum sarig'i. Qishda ko'pchilikda yetishmaydi.</p></div>
+        <div class="food" style="--c:#8fd6a9"><h3>B guruhi va minerallar</h3><p>Go'sht, tuxum, dukkakli o'simliklar, yong'oq, yashil bargli sabzavotlar, to'liq donli non.</p></div>
+        <div class="food" style="--c:#9ec9f2"><h3>Omega-3</h3><p>Losos, skumbriya, sardina, yong'oq, zig'ir urug'i. Baliq kam yeyiladigan oilalarda ko'pincha yetishmaydi.</p></div>
+      </div>
+    </section>
+
     <section id="afzallik" aria-labelledby="h-why">
       <div class="sec-head"><h2 id="h-why">Nega Quyosh Vita</h2></div>
       <div class="why">
         <div><h3>Tarkibi ochiq</h3><p>Har bir qadoqda mg yoki IU bilan doza yozilgan. Nima ichayotganingizni bilasiz.</p></div>
         <div><h3>Ertasi kuni yetkazish</h3><p>Toshkent ichida buyurtma ertasi kuni eshigingizgacha olib boriladi.</p></div>
         <div><h3>Savol bo'lsa, javob beramiz</h3><p>Telefon orqali dozani tushuntiramiz. Dori emas, shuning uchun qabuldan oldin shifokor bilan maslahatlashing.</p></div>
+      </div>
+    </section>
+
+    <section id="savol" aria-labelledby="h-faq">
+      <div class="sec-head"><h2 id="h-faq">Ko'p so'raladigan savollar</h2></div>
+      <div class="faq">
+        <details><summary>Yetkazish qancha turadi va qancha vaqt oladi?</summary><p>Toshkent ichida buyurtma odatda ertasi kuni yetkaziladi. Aniq narx va vaqtni operator qo'ng'iroq paytida aytadi.</p></details>
+        <details><summary>To'lovni qanday qilaman?</summary><p>To'lov usulini operator buyurtmani tasdiqlayotganda kelishib oladi.</p></details>
+        <details><summary>Bir vaqtda bir nechta vitamin ichsam bo'ladimi?</summary><p>Ko'pincha bo'ladi, lekin ba'zi vitaminlar bir-birining dozasini oshirib yuborishi mumkin. Multivitamin ichsangiz, alohida C yoki D3 dozasini shifokor bilan kelishing.</p></details>
+        <details><summary>Qachon ichish yaxshi?</summary><p>Yog'da eriydigan vitaminlar (D3, omega-3) ovqat bilan birga yaxshi so'riladi. Qadoqdagi yo'riqnomani ham o'qing.</p></details>
+        <details><summary>Bolalar ham ichsa bo'ladimi?</summary><p>Bolalar uchun doza boshqacha. Bolaga vitamin berishdan oldin albatta shifokor bilan maslahatlashing.</p></details>
       </div>
     </section>
 
@@ -227,7 +331,7 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
   </main>
 
   <footer>
-    <p>© Quyosh Vita. Aloqa: +998 20 004 06 09. Narxlar namuna sifatida yozilgan, o'zingiznikiga almashtiring.</p>
+    <p>© Quyosh Vita. Aloqa: +998 77-777-7777.</p>
     <p>Vitaminlar dori vositasi emas. Qabul qilishdan oldin shifokor bilan maslahatlashing.</p>
   </footer>
 </div>
@@ -240,11 +344,34 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
 <script>
 (function () {
   var PRODUCTS = [
-    { id: "c",  badge: "C",  color: "#f6d33e", name: "Vitamin C",   meta: "1000 mg · 60 tabletka", note: "Kundalik himoya uchun. Kuniga bitta tabletka.", price: 89000 },
-    { id: "d3", badge: "D3", color: "#ff9d4d", name: "Vitamin D3",  meta: "2000 IU · 90 kapsula",  note: "Qish oylarida quyosh yetishmasa, shu zaxirani to'ldiradi.", price: 119000 },
-    { id: "mv", badge: "MV", color: "#8fd6a9", name: "Multivitamin", meta: "30 kunlik kurs",        note: "13 ta vitamin va minerallar bir qadoqda.", price: 149000 },
-    { id: "o3", badge: "Ω3", color: "#9ec9f2", name: "Omega-3",     meta: "60 kapsula",             note: "Baliq yog'idan. Ovqat bilan birga ichiladi.", price: 169000 }
+    { id: "c",  badge: "C",  color: "#f6d33e", name: "Vitamin C",   meta: "1000 mg · 60 tabletka", note: "Kundalik himoya uchun. Kuniga bitta tabletka.", price: 89000,
+      pts: ["Immunitetni qo'llab-quvvatlaydi", "Temirning so'rilishiga yordam beradi", "Antioksidant"],
+      more: "Suvda eriydi, ortig'i siydik bilan chiqib ketadi. Ovqatdan keyin ichish me'dani asraydi." },
+    { id: "d3", badge: "D3", color: "#ff9d4d", name: "Vitamin D3",  meta: "2000 IU · 90 kapsula",  note: "Qish oylarida quyosh yetishmasa, shu zaxirani to'ldiradi.", price: 119000,
+      pts: ["Suyak va tishlar uchun", "Mushaklar va immunitetni qo'llab-quvvatlaydi", "Qishda ayniqsa foydali"],
+      more: "Yog'da eriydi, shuning uchun ovqat bilan ichiladi. Dozani oshirib yubormang, aniq doza uchun shifokor bilan maslahatlashing." },
+    { id: "mv", badge: "MV", color: "#8fd6a9", name: "Multivitamin", meta: "30 kunlik kurs",        note: "13 ta vitamin va minerallar bir qadoqda.", price: 149000,
+      pts: ["Ratsiondagi bo'shliqlarni to'ldiradi", "Bir tabletka kuniga", "Faol hayot tarzi uchun"],
+      more: "Ovqatni almashtirmaydi, uni to'ldiradi. Boshqa vitaminlar bilan birga ichishdan oldin dozani solishtirib ko'ring." },
+    { id: "o3", badge: "Ω3", color: "#9ec9f2", name: "Omega-3",     meta: "60 kapsula",             note: "Baliq yog'idan. Ovqat bilan birga ichiladi.", price: 169000,
+      pts: ["Yurak-qon tomir salomatligi uchun", "Ko'z va miya faoliyatini qo'llab-quvvatlaydi", "Baliq kam yeydiganlar uchun"],
+      more: "Ovqat paytida ichilsa yaxshi so'riladi. Qon suyultiruvchi dori ichsangiz, avval shifokorga ayting." }
   ];
+
+  function bottle(color, label) {
+    return '<svg viewBox="0 0 80 124" role="img" aria-label="' + label + ' idishi">' +
+      '<rect x="22" y="2" width="36" height="16" rx="4" fill="#10281f"/>' +
+      '<rect x="26" y="18" width="28" height="8" fill="#e9efe9"/>' +
+      '<rect x="6" y="26" width="68" height="94" rx="14" fill="' + color + '"/>' +
+      '<rect x="6" y="26" width="14" height="94" rx="7" fill="#ffffff" opacity=".28"/>' +
+      '<rect x="14" y="52" width="52" height="42" rx="8" fill="#ffffff"/>' +
+      '<text x="40" y="82" text-anchor="middle" font-family="Bricolage Grotesque, Trebuchet MS, sans-serif" font-weight="800" font-size="24" fill="#10281f">' + label + '</text>' +
+      '<circle cx="40" cy="106" r="3" fill="#10281f" opacity=".35"/></svg>';
+  }
+  function byId(id) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].id === id) return PRODUCTS[i]; }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-b]"), function (el) {
+    var p = byId(el.getAttribute("data-b")); el.innerHTML = bottle(p.color, p.badge);
+  });
   var qty = {};
   PRODUCTS.forEach(function (p) { qty[p.id] = 0; });
 
@@ -255,9 +382,11 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
     var card = document.createElement("article");
     card.className = "card";
     card.innerHTML =
-      '<div class="badge" style="background:' + p.color + '">' + p.badge + '</div>' +
+      '<div class="bottle">' + bottle(p.color, p.badge) + '</div>' +
       '<div><h3>' + p.name + '</h3><p class="meta">' + p.meta + '</p></div>' +
       '<p class="note">' + p.note + '</p>' +
+      '<ul class="pts">' + p.pts.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>' +
+      '<details><summary>Batafsil</summary><p>' + p.more + '</p></details>' +
       '<div class="buy">' +
         '<div class="price">' + fmt(p.price) + ' <span>so\'m</span></div>' +
         '<div class="qty" role="group" aria-label="' + p.name + ' miqdori">' +
@@ -302,7 +431,6 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
     render();
   });
 
-  // copy phone
   var copyBtn = document.getElementById("copyBtn");
   copyBtn.addEventListener("click", function () {
     var el = document.getElementById("tel");
@@ -317,7 +445,6 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
     } catch (err) { fallback(); }
   });
 
-  // signup form: sends the order to /api/order, which forwards it to Telegram
   var form = document.getElementById("form");
   var status = document.getElementById("status");
   form.addEventListener("submit", function (e) {
@@ -345,8 +472,47 @@ footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; border-to
       form.reset();
     }).catch(function () {
       status.className = "status err";
-      status.textContent = "Yuborib bo'lmadi. Iltimos, +998 20 004 06 09 raqamiga qo'ng'iroq qiling.";
+      status.textContent = "Yuborib bo'lmadi. Iltimos, +998 77-777-7777 raqamiga qo'ng'iroq qiling.";
     }).then(function () { btn.disabled = false; });
+  });
+
+  var quizForm = document.getElementById("quizForm");
+  var result = document.getElementById("result");
+  var WHY = {
+    c: "Immunitetni qo'llab-quvvatlash uchun mos.",
+    d3: "Quyosh kam tushsa, D vitamini yetishmasligi mumkin.",
+    mv: "Ratsiondagi bo'shliqlarni bir tabletkada yopadi.",
+    o3: "Baliq kam yeyilsa, omega-3 ni qo'shimcha sifatida olish mumkin."
+  };
+  quizForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (n) { var el = quizForm.querySelector("input[name=" + n + "]:checked"); return el ? el.value : null; };
+    var a1 = v("q1"), a2 = v("q2"), a3 = v("q3");
+    if (!a1 || !a2 || !a3) { result.innerHTML = "<p class='status err'>Iltimos, uchala savolga javob bering.</p>"; return; }
+    var sc = { c: 0, d3: 0, mv: 0, o3: 0 };
+    if (a1 === "imm") { sc.c += 2; sc.d3 += 1; }
+    if (a1 === "eng") { sc.mv += 3; }
+    if (a1 === "heart") { sc.o3 += 3; }
+    if (a2 === "low") { sc.d3 += 2; }
+    if (a3 === "few") { sc.o3 += 2; }
+    var order = Object.keys(sc).sort(function (x, y) { return sc[y] - sc[x]; });
+    var picks = order.filter(function (k) { return sc[k] >= 2; }).slice(0, 2);
+    if (!picks.length) picks = [order[0]];
+    result.innerHTML = picks.map(function (k) {
+      var p = byId(k);
+      return '<div class="rec"><div class="bottle">' + bottle(p.color, p.badge) + '</div>' +
+        '<div class="t"><b>' + p.name + '</b><p>' + WHY[k] + '</p></div>' +
+        '<button type="button" class="btn btn-primary btn-small" data-add="' + k + '">Savatga qo\'shish</button></div>';
+    }).join("");
+  });
+  result.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-add]");
+    if (!b) return;
+    var id = b.getAttribute("data-add");
+    if (qty[id] < 1) qty[id] = 1;
+    render();
+    b.textContent = "Savatda";
+    b.disabled = true;
   });
 
   render();
